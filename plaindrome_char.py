@@ -1,20 +1,22 @@
-def palindrome(words):
-    word = ""
+def palindrome(string: str):
+    words = ""
 
-    for char in words:
+    for char in string:
         if char.isalnum():
-            word += char
+            words += char
 
-    word = word.lower()
-    first_index = 0
-    last_index = len(words) - 1
+    words = list(words.lower())
 
-    while first_index < last_index:
-        if words[first_index] == words[last_index]:
-            return True
-        first_index += 1
-        last_index -= 1
+    first_char = 0
+    last_char = len(words) - 1
 
-    return False
+    while first_char < last_char:
+        if words[first_char] != words[last_char]:
+            return False
+        
+        first_char += 1
+        last_char -= 1
 
-print(palindrome("Was it a car or a cat I saw?"))
+    return True
+
+print(palindrome("A man a plan a canal Panama"))
