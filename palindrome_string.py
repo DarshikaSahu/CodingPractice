@@ -1,22 +1,12 @@
-def palindrome(words: str):
-    word = ""
+def palindrome(string):
+    first_node = 0
+    last_node = len(string) - 1
 
-    for char in words:
-        if char.isalnum():
-            word += char
+    while first_node < last_node:
+        if string[first_node] != string[last_node]:
+            return False
+        first_node += 1
+        last_node -= 1
+    return True
 
-    word = word.lower().split()
-
-    first_index = 0
-    last_index = len(words) - 1
-
-    while first_index < last_index:
-        if words[first_index] == words[last_index]:
-            return True
-        
-        first_index += 1
-        last_index -= 1
-
-    return False
-
-print(palindrome("A man, a plan, a canal, Panama"))
+print(palindrome("madam"))
